@@ -1,0 +1,232 @@
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+// Behold, here are all the Foundation components.
+
+@import 'normalize'
+@import 'foundation-min'
+@import 'foundation-icons'
+@import 'flaticon'
+@import 'slick'
+@import 'slick-theme'
+@import url(https://fonts.googleapis.com/css?family=Open+Sans)
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic)
+
+//In the order:
+
+//reset
+//foundation styles minified
+//slick slider animations
+//slick slider animations
+
+//Variables
+
+$icons: sprite-map('sprites/*.png')
+
+//Mixins
+
+//Usually this mixin is already implemented by compass but due to a bug it isn't the case anymore
+//Wait for the next update of compass
+//documentation: http://compass-style.org/reference/compass/utilities/sprites/base/#mixin-sprite-dimensions  
+=sprite-dimensions($map, $sprite)
+  height: image-height(sprite-file($map, $sprite))
+  width: image-width(sprite-file($map, $sprite))
+  
+//Insert the code which should overwrite everything below
+
+#test_image
+  background: image-url('3d_printers.jpg')
+  height: image-height('3d_printers.jpg')
+  width: image-width('3d_printers.jpg')
+
+aside
+  background-color: red  
+  
+h1
+  color: blue
+
+//SPRITES  
+  //layout  
+i
+  background: $icons
+  display: inline-block
+
+  //specific case
+.icn-test
+  background-position: sprite-position($icons, paint)
+  +sprite-dimensions($icons, paint)
+
+  //automatic generation
+  //$i is the name of the sprite
+@each $i in sprite_names($icons)
+  .icn-#{$i}
+    background-position: sprite-position($icons, $i)
+    +sprite-dimensions($icons, $i)
+	
+body
+  background-color: #EEE
+  
+li i
+  font-weight: normal
+
+.main_wrapper
+  width: 100%
+  max-width: 100%
+  margin: 0 auto
+  font-family: Open Sans, sans-serif
+
+.big_wrap
+  width: 95%
+  min-width: 95%
+
+.med_wrap
+  width: 80%
+  min-width: 80%
+
+.lil_wrap
+  width: 65%
+  min-width: 65%
+
+.main_wrapper section
+  margin: 50px 0
+  height: auto
+
+.main_wrapper section .row
+  display: block
+  margin: 0 auto
+
+.main_wrapper section .big_wrap,
+.main_wrapper section .med_wrap,
+.main_wrapper section .lil_wrap
+  display: block
+  margin: 0 auto
+
+.home_titles
+  text-align: center
+  font-family: Lato, Open Sans, sans-serif
+  font-weight: bold
+  font-size: 35px
+  margin-bottom: 50px
+
+.main_wrapper #mmf_header
+  position: relative
+  background-color: #e9e9e9
+  padding: 30px
+
+.main_wrapper #mmf_header .row
+  padding: 0
+
+.main_wrapper #mmf_header p
+  font-size: 20px
+  font-weight: bold
+
+
+
+
+// FOOTER
+footer
+  width: 100%
+  background: #88CFC1
+  overflow: hidden
+  padding-bottom: 20px
+  margin: auto
+  autotext-align: left
+
+#footer_inner
+  max-width: 1440px!important
+  width: 100%
+  margin: auto
+  padding: 20px
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+#footer_inner h3
+  font-weight: bold
+  text-transform: uppercase
+  font-size: 15px
+  margin: 0 0 14px 0
+  padding: 20px 0 5px 15px
+  color: #FFF
+
+#footer_inner ul
+  padding: 0
+  list-style: none
+  font-size: 15px
+  margin-left: 1.1 rem
+
+#footer_inner ul li
+  position: relative
+
+#footer_inner ul li a
+  color: #eee
+  text-decoration: none
+  width: 95%
+
+#footer_inner ul li a:hover
+  color: #fff
+
+#footer_inner .social li a
+  display: block
+  height: 35px
+  width: 35px
+  background: url('../img/sprite.png') -70px -36px no-repeat
+
+#footer_inner .social li a.twitter
+  background-position: -105px -36px
+
+#footer_inner .social li a.pinterest
+  background-position: -139px -36px
+
+#footer_inner .social li a.instagram
+  background-position: -209px -36px
+
+#footer_inner .social li a.meetup
+  background-position: -174px -36px
+
+#footer_inner .social li span
+  pointer-events: none
+  color: white
+  border-radius: 50%
+  padding: 3px
+  font-size: 8px
+  width: 18px
+  height: 18px
+  position: absolute
+  top: 21px
+  left: 33px
+  text-align: center
+  font-weight: bold
+
+#footer_inner .social li #meetup_us
+  background: #3fbc9c
+
+#footer_inner .social li #meetup_uk 
+  background: #de4b38
+  
+#footer_inner .social li a:hover 
+  background: url('../img/sprite.png') -70px -71px no-repeat
+
+#footer_inner .social li a.twitter:hover 
+  background-position: -105px -71px
+
+#footer_inner .social li a.pinterest:hover 
+  background-position: -139px -71px
+
+#footer_inner .social li a.instagram:hover 
+  background-position: -209px -71px
+
+#footer_inner .social li a.meetup:hover 
+  background-position: -174px -71px
+
+
+/*MEDIA QUERIES*/
+@media screen and (max-width: 1023px)	
+  .main_wrapper #mmf_header #top_header
+    margin-bottom: 20px
+
+@media screen and (max-width: 640px)
+  .main_wrapper #mmf_header #top_header 
+    margin-bottom: 50px
+	
